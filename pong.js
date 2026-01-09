@@ -88,15 +88,15 @@ function update() {
 
     
 
-    //bounce the ball back
+   
     if (detectCollision(ball, player1)) {
-        if (ball.x <= player1.x + player1.width) { //left side of ball touches right side of player 1 (left paddle)
-            ball.velocityX *= -1;   // flip x direction
+        if (ball.x <= player1.x + player1.width) { 
+            ball.velocityX *= -1;   
         }
     }
     else if (detectCollision(ball, player2)) {
-        if (ball.x + ballWidth >= player2.x) { //right side of ball touches left side of player 2 (right paddle)
-            ball.velocityX *= -1;   // flip x direction
+        if (ball.x + ballWidth >= player2.x) { 
+            ball.velocityX *= -1;   
         }
     }
 
@@ -116,8 +116,8 @@ function update() {
     context.fillText(player2Score, boardWidth*4/5 - 45, 45);
 
     // draw dotted line down the middle
-    for (let i = 10; i < board.height; i += 25) { //i = starting y Position, draw a square every 25 pixels down
-        // (x position = half of boardWidth (middle) - 10), i = y position, width = 5, height = 5
+    for (let i = 10; i < board.height; i += 25) { 
+
         context.fillRect(board.width / 2 - 10, i, 5, 5); 
     }
 }
@@ -145,10 +145,10 @@ function movePlayer(e) {
 }
 
 function detectCollision(a, b) {
-    return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
-           a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
-           a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
-           a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+    return a.x < b.x + b.width &&   
+           a.x + a.width > b.x &&  
+           a.y < b.y + b.height &&  
+           a.y + a.height > b.y;   
 }
 
 function resetGame(direction) {
